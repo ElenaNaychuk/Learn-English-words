@@ -1,0 +1,52 @@
+$color-green: #04a904;
+$color-dark_green: #025302;
+$color: #08b865;
+
+.container_card {
+    text-align: center;
+    width: 12em;
+    height: 9em;
+    border: 2px solid $color-green;
+    border-radius: 10px;
+    font-size: x-large;
+
+    .wordEnglish {
+        font-size: xx-large;
+        font-weight: 700;
+        margin: 25px 0 10px;
+        color: $color;
+    }
+
+    .wordRussian {
+        font-weight: 500;
+        color: $color;
+        margin-top: 30px;
+    }
+
+    .button {
+        width: 13vw;
+        height: 5vh;
+        border: 1px solid $color-dark_green;
+        background-color: $color;
+        color: #FFF;
+        border-radius: 5px;
+        border: none;
+        font-size: 1rem;
+        margin-top: 40px;
+    }
+
+    // .none {
+    //     display: none;
+    // }
+
+    // .show {
+    //     display: block;
+    // }
+
+    .button:hover {
+        cursor: pointer;
+        background-color: white;
+        border: 1px solid $color-green;
+        color: $color-green;
+    }
+}

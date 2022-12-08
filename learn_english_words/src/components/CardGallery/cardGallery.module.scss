@@ -1,0 +1,22 @@
+.container {
+    display: flex;
+    justify-content: center;
+    gap: 10vw;
+    align-items: center;
+    margin: 30px;
+
+    .btn {
+        border: none;
+    }
+
+    .btn:hover {
+        cursor: pointer;
+        box-shadow: 0.3em 0.3em 2em #08b865;
+    }
+
+}
+
+.card_number {
+    text-align: center;
+    margin-bottom: 30px;
+}

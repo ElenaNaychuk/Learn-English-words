@@ -1,0 +1,34 @@
+.block_navigation {
+    width: 10em;
+    min-height: 3em;
+    line-height: 3em;
+    color: #FFF;
+    border: 2px solid #FFF;
+    background-color: #08b865;
+    border-radius: 10px;
+    text-align: center;
+    font-size: medium;
+    margin: 10px;
+}
+
+.block_navigation:hover {
+    cursor: pointer;
+    background-color: #FFF;
+    border: 2px solid #08b865;
+    color: #08b865;
+    box-shadow: 0.1em 0.1em 1em #bef9dd;
+}
+
+.container {
+    display: flex;
+    flex: 1;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    min-height: 14vh;
+    background-color: #08b865;
+    position: sticky;
+    bottom: 0;
+    z-index: 1;
+}

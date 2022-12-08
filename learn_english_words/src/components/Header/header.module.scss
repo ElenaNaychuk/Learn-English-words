@@ -1,0 +1,61 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    flex: 1;
+    min-height: 14vh;
+    background-color: #08b865;
+    padding: 0 15px;
+
+    .registration_form {
+        display: flex;
+        gap: 5px;
+
+        .logo {
+            width: 70px;
+            height: 70px;
+        }
+
+        .profil {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-left: 20px;
+
+            .profil_icon {
+                width: 30px;
+                height: 30px;
+            }
+
+            .text {
+                color: #FFFFFF;
+                font-size: large;
+                font-weight: 500;
+            }
+
+            .text:hover {
+                cursor: pointer;
+                transform: scale(1.1, 1.1);
+                box-shadow: 0.3em 0.3em 2em rgba(255, 255, 255, 0.3);
+            }
+        }
+    }
+
+    .search_block {
+        display: flex;
+        gap: 1px;
+        margin: 7px 0;
+
+        .input {
+            height: 30px;
+            border: none;
+            padding-left: 7px;
+        }
+
+        .search_icon:hover {
+            cursor: pointer;
+        }
+    }
+}
