@@ -1,52 +1,56 @@
-$color-green: #04a904;
-$color-dark_green: #025302;
-$color: #08b865;
+$main-color: #579a7b;
 
 .container_card {
     text-align: center;
-    width: 12em;
-    height: 9em;
-    border: 2px solid $color-green;
+    width: 300px;
+    height: 12em;
+    border: 2px solid $main-color;
     border-radius: 10px;
-    font-size: x-large;
+    background-color: #fff;
 
     .wordEnglish {
-        font-size: xx-large;
-        font-weight: 700;
         margin: 25px 0 10px;
-        color: $color;
+        color: $main-color;
+        font-family: 'Inter';
+        font-size: 36px;
+        font-weight: 500;
+    }
+
+    .transcription {
+        font-family: 'Inter';
+        font-size: 20px;
+        font-weight: 300;
     }
 
     .wordRussian {
-        font-weight: 500;
-        color: $color;
+        color: $main-color;
         margin-top: 30px;
+        font-family: 'Inter';
+        font-size: 20px;
+        font-weight: 500;
     }
 
     .button {
-        width: 13vw;
-        height: 5vh;
-        border: 1px solid $color-dark_green;
-        background-color: $color;
+        width: 60%;
+        height: 40px;
+        border: 1px solid $main-color;
+        background-color: $main-color;
         color: #FFF;
         border-radius: 5px;
         border: none;
-        font-size: 1rem;
         margin-top: 40px;
+        font-family: 'Inter';
+        font-size: 16px;
+        font-weight: 300;
     }
-
-    // .none {
-    //     display: none;
-    // }
-
-    // .show {
-    //     display: block;
-    // }
 
     .button:hover {
         cursor: pointer;
         background-color: white;
-        border: 1px solid $color-green;
-        color: $color-green;
+        border: 1px solid $main-color;
+        color: $main-color;
+        font-family: 'Inter';
+        font-size: 16px;
+        font-weight: 500;
     }
 }

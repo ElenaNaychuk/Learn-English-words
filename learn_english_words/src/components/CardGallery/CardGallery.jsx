@@ -24,12 +24,13 @@ function CardGallery({ words }) {
     }
 
     return (
-        <div>
+        <div className={style.wrapper}>
             <div className={style.container}>
                 <Button
                     function={showPreviousCard}
                     className={style.btn}
-                    src='./assets/images/icons8-двойная-стрелка-влево-50.png'
+                    src='./assets/images/icons8-стрелка-влево-в-круге-50.png'
+                    style={style.btn}
                 />
                 <WordCard
                     handelClick={handelClick}
@@ -42,7 +43,8 @@ function CardGallery({ words }) {
                 <Button
                     function={showNextCard}
                     className={style.btn}
-                    src='./assets/images/icons8-двойная-стрелка-вправо-50.png'
+                    src='./assets/images/icons8-стрелка-вправо-в-круге-50.png'
+                    style={style.btn}
                 />
             </div>
             <div className={style.card_number}>{cardIndex + 1} / {words.length}</div>

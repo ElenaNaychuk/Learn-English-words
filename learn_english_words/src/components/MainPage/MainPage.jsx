@@ -1,10 +1,14 @@
-import style from './mainPage.module.scss';
-const userName = 'Елена';
 
-function MainPage() {
+import style from './mainPage.module.scss';
+MainPage.defaultProps = {
+    userName: 'пользователь'
+}
+
+function MainPage(props) {
+
     return (
         <div className={style.container}>
-            <h3 className={style.title}>Приветствуем {userName}!</h3>
+            <h3 className={style.title}>Приветствуем, {props.userName}!</h3>
             <div className={style.welcome}>
                 <div className={style.content}>
                     <p className={style.text}>Какое-то приветствие...</p>

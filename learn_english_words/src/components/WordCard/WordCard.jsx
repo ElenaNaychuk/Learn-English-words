@@ -5,7 +5,7 @@ function WordCard(props) {
     return (
         <div className={style.container_card} id={props.key}>
             <div className={style.wordEnglish}>{props.english}</div>
-            <div className={style.transcript}>{props.transcription}</div>
+            <div className={style.transcription}>{props.transcription}</div>
             <div className={style.buttons}>
                 {
                     props.clicked

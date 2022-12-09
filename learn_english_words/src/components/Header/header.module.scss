@@ -5,8 +5,9 @@
     justify-content: space-between;
     align-items: center;
     flex: 1;
-    min-height: 14vh;
-    background-color: #08b865;
+
+    min-height: 10vh;
+    background-color: #61a485;
     padding: 0 15px;
 
     .registration_form {
@@ -14,8 +15,10 @@
         gap: 5px;
 
         .logo {
-            width: 70px;
-            height: 70px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            margin: 5px;
         }
 
         .profil {
@@ -31,8 +34,10 @@
 
             .text {
                 color: #FFFFFF;
-                font-size: large;
-                font-weight: 500;
+                font-family: 'Inter';
+                font-size: 20px;
+                font-weight: 300;
+
             }
 
             .text:hover {

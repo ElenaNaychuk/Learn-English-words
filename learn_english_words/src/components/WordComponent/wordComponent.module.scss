@@ -5,10 +5,13 @@
     gap: 5px;
     margin-bottom: 10px;
     padding: 5px;
+    font-family: 'Inter';
+    font-size: 16px;
+    font-weight: 300;
 }
 
 .wrapper {
-    border: 1px solid #08b865;
+    border: 1px solid #579a7b;
     padding: 5px;
     background-color: #FFF;
 }
@@ -21,12 +24,12 @@
     padding: 5px;
 
     .img {
-        margin: 2px;
+        margin: 3px;
     }
 }
 
 .btn_save {
-    background-color: #08b865;
+    background-color: #579a7b;
 }
 
 .btn_edit {
@@ -38,6 +41,6 @@
 }
 
 .btn_delete {
-    background-color: #fa7a7b;
+    background-color: #fa7b7c;
     padding: 0 3px;
 }

@@ -25,7 +25,7 @@ function WordComponent(props) {
             <div className={`${style.btn_container} ${style.wrapper}`}>
                 {isEditing && <Button
                     style={style.btn_save}
-                    src='./assets/images/icons8-галочка-64.png'
+                    src='./assets/images/icons8-галочка-26.png'
                 />}
                 {isEditing && <Button
                     function={cancelEditing}
