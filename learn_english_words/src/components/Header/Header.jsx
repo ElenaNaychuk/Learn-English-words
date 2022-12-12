@@ -1,13 +1,17 @@
 import style from './header.module.scss';
+import RegistrationForm from '../LoginForm/LoginForm';
 
-function Header() {
+function Header(props) {
+
     return (
         <div className={style.container}>
             <div className={style.registration_form}>
-                <img className={style.logo} src='./assets/images/eng.png' alt="logo" />
                 <div className={style.profil}>
-                    <img className={style.profil_icon} src="./assets/images/icons8-пользователь-мужчина-в-кружке-50.png" alt="logo" />
-                    <p className={style.text}>Регистрация</p>
+                    <img className={style.profil_icon}
+                        src="./assets/images/icons8-пользователь-мужчина-в-кружке-50.png"
+                        alt="logo" />
+                    <button onClick={props.showLoginForm} className={style.text}>Войти</button>
+                    <button className={style.text}>Регистрация</button>
                 </div>
             </div>
             <legend className={style.search_block}>

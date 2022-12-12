@@ -33,11 +33,15 @@
             }
 
             .text {
+                border: 1px solid #FFFFFF;
+                border-radius: 7px;
+                background-color: #61a485;
+                padding: 7px;
                 color: #FFFFFF;
+
                 font-family: 'Inter';
                 font-size: 20px;
                 font-weight: 300;
-
             }
 
             .text:hover {

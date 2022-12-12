@@ -7,7 +7,7 @@ MainPage.defaultProps = {
 function MainPage(props) {
 
     return (
-        <div className={style.container}>
+        <div className={style.container} id='main'>
             <h3 className={style.title}>Приветствуем, {props.userName}!</h3>
             <div className={style.welcome}>
                 <div className={style.content}>

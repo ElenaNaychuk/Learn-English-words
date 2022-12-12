@@ -1,12 +1,14 @@
 $main-color: #579a7b;
 
 .container_card {
-    text-align: center;
     width: 300px;
     height: 12em;
+
+    text-align: center;
     border: 2px solid $main-color;
     border-radius: 10px;
     background-color: #fff;
+    padding: 20px;
 
     .wordEnglish {
         margin: 25px 0 10px;

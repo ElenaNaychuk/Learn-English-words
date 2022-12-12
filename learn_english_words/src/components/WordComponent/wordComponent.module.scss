@@ -5,42 +5,39 @@
     gap: 5px;
     margin-bottom: 10px;
     padding: 5px;
-    font-family: 'Inter';
-    font-size: 16px;
-    font-weight: 300;
-}
 
-.wrapper {
-    border: 1px solid #579a7b;
-    padding: 5px;
-    background-color: #FFF;
-}
-
-.btn_container {
-    display: flex;
-    justify-content: space-around;
-    flex: 1;
-    gap: 5px;
-    padding: 5px;
-
-    .img {
-        margin: 3px;
+    .wrapper {
+        border: 1px solid #579a7b;
+        padding: 5px;
+        background-color: #FFF;
     }
-}
 
-.btn_save {
-    background-color: #579a7b;
-}
+    .btn_container {
+        display: flex;
+        justify-content: space-around;
+        flex: 1;
+        gap: 5px;
+        padding: 5px;
 
-.btn_edit {
-    background-color: #feac4c;
-}
+        .img {
+            margin: 3px;
+        }
 
-.cancel_edit_btn {
-    background-color: #feac4c;
-}
+        .btn_save {
+            background-color: #579a7b;
+        }
 
-.btn_delete {
-    background-color: #fa7b7c;
-    padding: 0 3px;
+        .btn_edit {
+            background-color: #feac4c;
+        }
+
+        .cancel_edit_btn {
+            background-color: #feac4c;
+        }
+
+        .btn_delete {
+            background-color: #fa7b7c;
+            padding: 0 3px;
+        }
+    }
 }
