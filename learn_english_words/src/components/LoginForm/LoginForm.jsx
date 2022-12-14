@@ -3,22 +3,11 @@ import style from './loginForm.module.scss';
 
 export default class LoginForm extends React.Component {
 
-    // saveUserData = () => {
-    //     console.log('userData');
-    // }
-
-    // closeRegistrationForm = () => {
-    //     this.setState({
-    //         showRegistrationForm: true,
-    //     });
-    //     dialog.close();
-    // }
-
     render() {
         return (
             <div className={style.favDialog}>
                 <form className={style.form}>
-                    <h2 className={style.title}>Регистрация</h2>
+                    <h2 className={style.title}>Вход</h2>
                     <legend>
                         <input className={style.input} type="text" placeholder='Имя' />
                     </legend>

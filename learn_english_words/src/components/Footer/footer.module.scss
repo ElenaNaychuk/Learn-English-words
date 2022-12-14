@@ -6,7 +6,7 @@
     flex-direction: row;
     flex-wrap: wrap;
 
-    min-height: 10vh;
+    min-height: 60px;
     background-color: #61a485;
 
     position: sticky;
@@ -23,6 +23,7 @@
         border-radius: 10px;
         text-align: center;
         margin: 10px;
+        text-decoration: none;
 
         font-family: 'Inter';
         font-size: 16px;
@@ -35,5 +36,6 @@
         border: 2px solid #61a485;
         color: #61a485;
         font-weight: 500;
+        text-decoration: none;
     }
 }

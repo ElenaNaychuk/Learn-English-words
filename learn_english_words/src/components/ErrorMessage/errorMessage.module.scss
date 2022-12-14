@@ -1,0 +1,29 @@
+.container {
+    height: calc(100vh - 282px);
+    background-color: #edf1f5;
+    text-align: center;
+    padding-top: 150px;
+
+    .title {
+        font-family: 'Inter';
+        font-size: 36px;
+        font-weight: 500;
+        color: #396450;
+    }
+
+    .message {
+        font-family: 'Inter';
+        font-size: 26px;
+        font-weight: 500;
+        color: #396450;
+        margin-top: 30px;
+    }
+
+    .link {
+        font-family: 'Inter';
+        font-size: 30px;
+        font-weight: 500;
+        color: #396450;
+        margin-top: 30px;
+    }
+}

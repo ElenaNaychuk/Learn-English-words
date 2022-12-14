@@ -1,5 +1,4 @@
 import style from './header.module.scss';
-import RegistrationForm from '../LoginForm/LoginForm';
 
 function Header(props) {
 

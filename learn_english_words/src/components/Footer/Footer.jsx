@@ -1,13 +1,12 @@
+import { Link } from 'react-router-dom';
 import style from './footer.module.scss';
 
 function Footer(props) {
     return (
         <footer className={style.container}>
-            <button className={style.block_navigation}>Выученные</button>
-            <button onClick={props.showCardGallery}
-                className={style.block_navigation}>Карточки слов</button>
-            <button onClick={props.showWordsList}
-                className={style.block_navigation}>Список слов</button>
+            <Link to='/learned' className={style.block_navigation}>Выученные</Link>
+            <Link to='/cards' className={style.block_navigation}>Карточки слов</Link>
+            <Link to='/list' className={style.block_navigation}>Список слов</Link>
         </footer>
     );
 }

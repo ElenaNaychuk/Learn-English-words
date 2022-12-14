@@ -56,3 +56,36 @@ $main-color: #579a7b;
         font-weight: 500;
     }
 }
+
+@media screen and (max-width: 568.98px) {
+    .container_card {
+        width: 60%;
+        min-height: 150px;
+        padding: 10px;
+
+        .wordEnglish {
+            margin: 15px 0 5px;
+            font-size: 26px;
+        }
+
+        .transcription {
+            font-size: 16px;
+        }
+
+        .wordRussian {
+            font-size: 20px;
+        }
+
+        .button {
+            width: 80%;
+            height: 30px;
+            margin-top: 40px;
+            font-size: 14px;
+        }
+
+        .button:hover {
+            font-size: 16px;
+            font-weight: 300;
+        }
+    }
+}
