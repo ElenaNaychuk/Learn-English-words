@@ -1,14 +1,14 @@
 .wrapper {
     padding: 30px 0;
     background-color: #edf1f5;
-    height: calc(100vh - 192px);
+    height: 100vh;
 
     .container {
         display: flex;
         justify-content: center;
         gap: 7vw;
         align-items: center;
-        margin-top: 120px;
+        margin-top: 100px;
 
         .btn {
             border: none;
@@ -26,6 +26,15 @@
         text-align: center;
         margin-bottom: 30px;
         margin-top: 30px;
+    }
+
+    .text {
+        text-align: center;
+        font-family: 'Inter';
+        font-size: 26px;
+        font-weight: 500;
+        color: #396450;
+        margin-bottom: 30px;
     }
 }
 

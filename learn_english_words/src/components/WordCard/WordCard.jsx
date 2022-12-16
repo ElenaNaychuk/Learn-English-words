@@ -1,6 +1,17 @@
+import { useEffect, useRef } from 'react';
 import style from './wordCard.module.scss'
 
 function WordCard(props) {
+
+    const ref = useRef(null);
+
+    useEffect(() => {
+        if (ref.current) {
+            ref.current.focus()
+        }
+    });
+
+    useEffect(() => console.log('я родился!'))
 
     return (
         <div className={style.container_card} id={props.key}>
@@ -10,7 +21,10 @@ function WordCard(props) {
                 {
                     props.clicked
                         ? <p className={style.wordRussian}>{props.russian}</p>
-                        : <button onClick={props.handelClick} className={style.button}>Проверить</button>
+                        : <button onClick={props.handelClick}
+                            className={style.button}
+                            ref={ref}>Проверить
+                        </button>
                 }
             </div>
         </div>

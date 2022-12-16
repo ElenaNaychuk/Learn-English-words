@@ -7,7 +7,7 @@ import style from './wordComponent.module.scss';
 
 function WordComponent(props) {
 
-    const [isEditing, setIsEditing] = useState(props.clicked || false);
+    const [isEditing, setIsEditing] = useState(false);
 
     const edit = () => {
         setIsEditing(true);

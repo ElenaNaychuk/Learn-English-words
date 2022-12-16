@@ -1,5 +1,5 @@
-
 import style from './mainPage.module.scss';
+
 MainPage.defaultProps = {
     userName: 'пользователь'
 }

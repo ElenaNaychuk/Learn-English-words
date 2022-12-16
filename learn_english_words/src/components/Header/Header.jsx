@@ -1,6 +1,10 @@
+import { useEffect, useRef } from 'react';
 import style from './header.module.scss';
 
 function Header(props) {
+
+    const ref = useRef(null);
+    useEffect(() => ref.current.focus(), []);
 
     return (
         <div className={style.container}>
@@ -14,7 +18,7 @@ function Header(props) {
                 </div>
             </div>
             <legend className={style.search_block}>
-                <input className={style.input} type="text" placeholder='поиск' />
+                <input ref={ref} className={style.input} type="text" placeholder='поиск' />
                 <img className={style.search_icon} src='./assets/images/searchIcon.svg' alt="search" />
             </legend>
         </div>

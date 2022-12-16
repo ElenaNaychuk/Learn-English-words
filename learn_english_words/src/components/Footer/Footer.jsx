@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import style from './footer.module.scss';
 
-function Footer(props) {
+function Footer() {
     return (
         <footer className={style.container}>
             <Link to='/learned' className={style.block_navigation}>Выученные</Link>

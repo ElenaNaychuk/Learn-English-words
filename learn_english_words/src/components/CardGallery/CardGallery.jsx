@@ -8,13 +8,15 @@ import style from './cardGallery.module.scss';
 function CardGallery({ words }) {
     const [clicked, setClick] = useState(false);
     const [cardIndex, setCardIndex] = useState(0);
+    const [isLearned, setIsLearned] = useState(0);
 
     const handelClick = () => {
         setClick(true);
+        setIsLearned((isLearned) => isLearned + 1);
     }
 
     const showPreviousCard = () => {
-        setCardIndex(cyclicDecrement(cardIndex, words.length - 1))
+        setCardIndex(cyclicDecrement(cardIndex, words.length - 1));
         setClick(false);
     }
 
@@ -48,6 +50,7 @@ function CardGallery({ words }) {
                 />
             </div>
             <div className={style.card_number}>{cardIndex + 1} / {words.length}</div>
+            <div className={style.text}>Выучено в этот раз: {isLearned}.</div>
         </div>
     );
 }
