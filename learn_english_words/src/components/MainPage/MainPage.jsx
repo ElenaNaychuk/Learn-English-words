@@ -16,13 +16,6 @@ function MainPage(props) {
                 </div>
                 <img className={style.image} src="./assets/images/study2-img.jpg" alt="photo" />
             </div>
-            <div className={style.info}>
-                <img className={style.image} src="./assets/images/study_img.png" alt="photo" />
-                <div className={style.content}>
-                    <p className={style.text}>Мотивирующий текст...</p>
-                    <button className={style.button}>Учить!</button>
-                </div>
-            </div>
         </div>
     );
 }

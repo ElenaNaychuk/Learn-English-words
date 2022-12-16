@@ -39,3 +39,13 @@
         text-decoration: none;
     }
 }
+
+@media screen and (max-width: 599.98px) {
+    .container {
+        .block_navigation {
+            min-height: 2em;
+            line-height: 2em;
+            margin: 6px;
+        }
+    }
+}

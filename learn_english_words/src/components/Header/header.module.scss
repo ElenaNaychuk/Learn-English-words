@@ -15,7 +15,7 @@
     z-index: 1;
 
 
-    .registration_form {
+    .login_form {
         display: flex;
         gap: 5px;
 
@@ -70,6 +70,37 @@
 
         .search_icon:hover {
             cursor: pointer;
+        }
+    }
+}
+
+@media screen and (max-width: 599.98px) {
+    .container {
+        padding: 0 10px;
+
+        .login_form {
+            margin: 5px auto;
+
+            .profil {
+                .text {
+                    padding: 4px;
+                    font-size: 14px;
+                }
+            }
+        }
+
+        .search_block {
+            gap: 5px;
+            margin: 7px auto;
+
+            .input {
+                height: 25px;
+            }
+
+            .search_icon {
+                width: 25px;
+                height: 25px;
+            }
         }
     }
 }

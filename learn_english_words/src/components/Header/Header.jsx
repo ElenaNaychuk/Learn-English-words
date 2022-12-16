@@ -8,7 +8,7 @@ function Header(props) {
 
     return (
         <div className={style.container}>
-            <div className={style.registration_form}>
+            <div className={style.login_form}>
                 <div className={style.profil}>
                     <img className={style.profil_icon}
                         src="./assets/images/icons8-пользователь-мужчина-в-кружке-50.png"
