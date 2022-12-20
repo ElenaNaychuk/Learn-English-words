@@ -1,10 +1,21 @@
-import style from './button.module.scss'
+import classnames from 'classnames';
+import style from './button.module.scss';
 
 function Button(props) {
+
+    const newClass = classnames(
+        props.style,
+        {
+            [props.disabledStyle]: props.disabled,
+            [style.btn_disabled]: props.disabled
+        }
+    );
+
     return (
         <button
-            onClick={props.function}
-            className={`${style.btn} ${props.style}`}
+            onClick={props.onClick}
+            className={`${style.btn} ${newClass}`}
+            disabled={props.disabled}
         >
             <img src={props.src} />
         </button >

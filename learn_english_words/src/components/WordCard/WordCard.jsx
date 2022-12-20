@@ -11,8 +11,6 @@ function WordCard(props) {
         }
     });
 
-    useEffect(() => console.log('я родился!'))
-
     return (
         <div className={style.container_card} id={props.key}>
             <div className={style.wordEnglish}>{props.english}</div>

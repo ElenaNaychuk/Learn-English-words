@@ -27,6 +27,10 @@
             background-color: #579a7b;
         }
 
+        .btn_save_disabled {
+            opacity: 0.5;
+        }
+
         .btn_edit {
             background-color: #feac4c;
         }
@@ -39,6 +43,14 @@
             background-color: #fa7b7c;
             padding: 0 3px;
         }
+    }
+
+    .error_text {
+        color: red;
+        font-family: 'Inter';
+        font-size: 13px;
+        font-weight: 300;
+        padding: 8px;
     }
 }
 

@@ -8,13 +8,14 @@ import WordList from './components/WordList/WordList.jsx';
 import CardGallery from './components/CardGallery/CardGallery.jsx';
 import LoginForm from './components/LoginForm/LoginForm.jsx';
 import ErrorMessage from './components/ErrorMessage/ErrorMessage.jsx';
+import RegistrationForm from './components/RegistrationForm/RegistrationForm.jsx';
 
 import words from './data/wordsData.json';
 import './style/App.scss';
 
-
 function App() {
   const [isLoginFormShown, setIsLoginFormShown] = useState(false);
+  const [isRegistrationFormShown, setIsRegistrationFormShown] = useState(false);
 
   const showLoginForm = () => {
     setIsLoginFormShown(true);
@@ -24,16 +25,27 @@ function App() {
     setIsLoginFormShown(false);
   };
 
+  const showRegistrationForm = () => {
+    setIsRegistrationFormShown(true);
+  }
+
+  const closeRegistrationForm = () => {
+    setIsRegistrationFormShown(false);
+  };
+
   useEffect(() => { console.log("Hello") }, []) // TODO вместо log брать данные из LocalStorage или с сервера
 
   return (
     <Router>
       <div className='wrapper'>
-        <Header showLoginForm={showLoginForm} />
+        <Header showLoginForm={showLoginForm} showRegistrationForm={showRegistrationForm} />
         {
           isLoginFormShown && <LoginForm
             closeLoginForm={closeLoginForm}
           />
+        }
+        {
+          isRegistrationFormShown && <RegistrationForm closeRegistrationForm={closeRegistrationForm} />
         }
         <Routes>
           {/* <Route exact path="/learned" element={<LearnedWords />} /> //TODO */}

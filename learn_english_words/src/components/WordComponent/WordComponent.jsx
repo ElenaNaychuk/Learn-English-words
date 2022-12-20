@@ -1,13 +1,37 @@
 import { useState } from 'react';
-
 import Word from './Word/Word.jsx';
 import Button from './Button/Button';
 
 import style from './wordComponent.module.scss';
+import { useEffect } from 'react';
 
 function WordComponent(props) {
+    const { english, transcription, russian } = props;
 
     const [isEditing, setIsEditing] = useState(false);
+
+    const [errors, setErrors] = useState({
+        english: undefined,
+        transcription: undefined,
+        russian: undefined
+    });
+
+    const [newValues, setNewValues] = useState({
+        english: english,
+        transcription: transcription,
+        russian: russian
+    });
+
+    useEffect(() => setNewValues(newValues), [newValues]);
+
+    const hasChanges = () => {
+        for (const [name, value] of Object.entries(newValues)) {
+            if (props[name] !== value) return true
+        }
+        return false
+    }
+
+    const hasErrors = () => Object.values(errors).filter(error => error !== undefined).length > 0
 
     const edit = () => {
         setIsEditing(true);
@@ -17,23 +41,62 @@ function WordComponent(props) {
             setIsEditing(false);
         }
     }
+
+    function validate(inputValue) {
+        if (inputValue === '') {
+            return 'Заполните поле!'
+        } else if (/\d/.test(inputValue)) {
+            return 'Цифры вводить нельзя!'
+        }
+    }
+
+    const createOnChangeHandler = (propertyName) => (newValue, error) => {
+        setNewValues({ ...newValues, [propertyName]: newValue });
+        setErrors({ ...errors, [propertyName]: error });
+    }
+
+    const saveChanges = () => {
+        console.log(newValues);
+        setIsEditing(!isEditing);
+    }
+
     return (
         <div className={style.conainer} key={props.id}>
-            <Word content={props.english} isEditing={isEditing} />
-            <Word content={props.transcription} isEditing={isEditing} />
-            <Word content={props.russian} isEditing={isEditing} />
+            <Word validate={validate}
+                onChange={createOnChangeHandler('english')}
+                content={props.word.english}
+                isEditing={isEditing}
+                name='english'
+            />
+            <Word
+                validate={validate}
+                onChange={createOnChangeHandler('transcription')}
+                content={transcription}
+                isEditing={isEditing}
+                name='transcription'
+            />
+            <Word
+                validate={validate}
+                onChange={createOnChangeHandler('russian')}
+                content={russian}
+                isEditing={isEditing}
+                name='russian'
+            />
             <div className={`${style.btn_container} ${style.wrapper}`}>
                 {isEditing && <Button
-                    style={style.btn_save}
+                    onClick={saveChanges}
                     src='./assets/images/icons8-галочка-26.png'
+                    disabled={!hasChanges() || hasErrors()}
+                    style={style.btn_save}
+                    disabledStyle={style.btn_save_disabled}
                 />}
                 {isEditing && <Button
-                    function={cancelEditing}
+                    onClick={cancelEditing}
                     style={style.cancel_edit_btn}
                     src='./assets/images/icons8-отменить-30.png'
                 />}
                 {!isEditing && <Button
-                    function={edit}
+                    onClick={edit}
                     style={style.btn_edit}
                     src='./assets/images/icons8-карандаш-100.png'
                 />}
@@ -42,6 +105,7 @@ function WordComponent(props) {
                     src='./assets/images/icons8-сортировка-отходов-50.png'
                 />
             </div>
+            {errors && <div className={style.error_text}>{[errors.english, errors.transcription, errors.russian]}</div>}
         </div>
     );
 }

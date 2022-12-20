@@ -6,13 +6,14 @@ import Button from '../WordComponent/Button/Button';
 import style from './cardGallery.module.scss';
 
 function CardGallery({ words }) {
+
     const [clicked, setClick] = useState(false);
     const [cardIndex, setCardIndex] = useState(0);
-    const [isLearned, setIsLearned] = useState(0);
+    const [isLearnedNow, setIsLearnedNow] = useState(0);
 
     const handelClick = () => {
         setClick(true);
-        setIsLearned((isLearned) => isLearned + 1);
+        setIsLearnedNow((isLearnedNow) => isLearnedNow + 1);
     }
 
     const showPreviousCard = () => {
@@ -29,7 +30,7 @@ function CardGallery({ words }) {
         <div className={style.wrapper}>
             <div className={style.container}>
                 <Button
-                    function={showPreviousCard}
+                    onClick={showPreviousCard}
                     className={style.btn}
                     src='./assets/images/icons8-стрелка-влево-в-круге-50.png'
                     style={style.btn}
@@ -43,14 +44,14 @@ function CardGallery({ words }) {
                     clicked={clicked}
                 />
                 <Button
-                    function={showNextCard}
+                    onClick={showNextCard}
                     className={style.btn}
                     src='./assets/images/icons8-стрелка-вправо-в-круге-50.png'
                     style={style.btn}
                 />
             </div>
             <div className={style.card_number}>{cardIndex + 1} / {words.length}</div>
-            <div className={style.text}>Выучено в этот раз: {isLearned}.</div>
+            <div className={style.text}>Выучено в этот раз: {isLearnedNow}.</div>
         </div>
     );
 }

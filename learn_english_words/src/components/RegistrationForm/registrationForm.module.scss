@@ -1,0 +1,117 @@
+.favDialog {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #396450;
+
+    .form {
+        position: absolute;
+        top: 10%;
+        left: 10%;
+        right: 10%;
+        bottom: 10%;
+        opacity: 1;
+        background-color: #edf1f5;
+        border-radius: 5px;
+        text-align: center;
+    }
+
+    .title {
+        text-align: center;
+        margin: 20px 0 5px;
+        font-family: 'Inter';
+        font-size: 22px;
+        font-weight: 500;
+        color: #396450;
+    }
+
+    .registration_inputs {
+        display: flex;
+        flex-direction: column;
+
+        .input {
+            width: 50%;
+            margin: 8px auto;
+            padding: 6px;
+            border: 1px solid #396450;
+        }
+
+        #errorMessage {
+            color: red;
+            text-align: center;
+        }
+
+        span {
+            margin: 3px;
+            color: red;
+        }
+    }
+
+    .text {
+        font-family: 'Inter';
+        font-size: 12px;
+        font-weight: 300;
+    }
+
+
+    #message {
+        color: green;
+        text-align: center;
+    }
+
+    .saveDate_btn {
+        display: block;
+        width: 50%;
+        height: 35px;
+        border: none;
+        background-color: #396450;
+        color: #fff;
+        margin: 15px auto;
+        border-radius: 2px;
+
+        font-family: 'Inter';
+        font-size: 16px;
+        font-weight: 300;
+    }
+
+    .saveDate_btn:hover {
+        cursor: pointer;
+        background-color: #fff;
+        border: 1px solid #396450;
+        color: #396450;
+
+        font-family: 'Inter';
+        font-size: 16px;
+        font-weight: 300;
+    }
+
+    .close_btn {
+        border: none;
+        color: #396450;
+        display: block;
+        width: 30px;
+        height: 30px;
+        font-size: x-large;
+        position: absolute;
+        top: 10px;
+        right: 15px;
+    }
+
+    .close_btn:hover {
+        cursor: pointer;
+        border-radius: 50%;
+        background-color: #fff;
+    }
+}
+
+
+@media screen and (max-width: 599.98px) {
+    .favDialog {
+        .form {
+            left: 15%;
+            right: 15%;
+        }
+    }
+}

@@ -14,7 +14,7 @@ function Header(props) {
                         src="./assets/images/icons8-пользователь-мужчина-в-кружке-50.png"
                         alt="logo" />
                     <button onClick={props.showLoginForm} className={style.text}>Войти</button>
-                    <button className={style.text}>Регистрация</button>
+                    <button onClick={props.showRegistrationForm} className={style.text}>Регистрация</button>
                 </div>
             </div>
             <legend className={style.search_block}>

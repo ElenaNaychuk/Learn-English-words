@@ -11,10 +11,11 @@
         top: 20%;
         left: 25%;
         right: 25%;
-        bottom: 40%;
-        opacity: 1.1;
+        bottom: 30%;
+        opacity: 1;
         background-color: #edf1f5;
         border-radius: 5px;
+        text-align: center;
 
         .title {
             text-align: center;
@@ -31,6 +32,12 @@
             margin: 10px auto;
             padding: 7px;
             border: 1px solid #396450;
+        }
+
+        .text {
+            font-family: 'Inter';
+            font-size: 14px;
+            font-weight: 300;
         }
 
         .saveDate_btn {
@@ -76,6 +83,15 @@
             cursor: pointer;
             border-radius: 50%;
             background-color: #fff;
+        }
+    }
+}
+
+@media screen and (max-width: 599.98px) {
+    .favDialog {
+        .form {
+            left: 15%;
+            right: 15%;
         }
     }
 }

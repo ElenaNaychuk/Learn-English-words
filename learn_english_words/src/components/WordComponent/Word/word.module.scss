@@ -18,6 +18,18 @@
     font-style: italic;
 }
 
+.input_red {
+    border: 1px solid red;
+}
+
+.error_text {
+    color: red;
+    font-family: 'Inter';
+    font-size: 12px;
+    font-weight: 300;
+}
+
+
 @media screen and (max-width: 599.98px) {
 
     .wrapper {
