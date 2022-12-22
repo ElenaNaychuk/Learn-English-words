@@ -1,13 +1,9 @@
 import { useEffect, useState } from 'react'
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-
+import { CardGallery, ErrorMessage, MainPage, WordList } from './pages'
 import Header from './components/Header/Header.jsx';
-import MainPage from './components/MainPage/MainPage.jsx';
 import Footer from './components/Footer/Footer.jsx';
-import WordList from './components/WordList/WordList.jsx';
-import CardGallery from './components/CardGallery/CardGallery.jsx';
 import LoginForm from './components/LoginForm/LoginForm.jsx';
-import ErrorMessage from './components/ErrorMessage/ErrorMessage.jsx';
 import RegistrationForm from './components/RegistrationForm/RegistrationForm.jsx';
 
 import words from './data/wordsData.json';

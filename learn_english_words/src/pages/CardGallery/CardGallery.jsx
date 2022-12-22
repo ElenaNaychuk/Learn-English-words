@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
-import WordCard from '../WordCard/WordCard.jsx';
-import Button from '../WordComponent/Button/Button';
+import WordCard from '../../components/WordCard/WordCard.jsx';
+import Button from '../../components/Button/Button';
 
 import style from './cardGallery.module.scss';
 

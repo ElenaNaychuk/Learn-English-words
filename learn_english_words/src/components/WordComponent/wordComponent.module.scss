@@ -1,6 +1,7 @@
 .conainer {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 1fr 25px;
     background-color: #f0fbf6;
     gap: 5px;
     margin-bottom: 10px;
@@ -48,9 +49,12 @@
     .error_text {
         color: red;
         font-family: 'Inter';
-        font-size: 13px;
+        font-size: 15px;
         font-weight: 300;
         padding: 8px;
+        text-align: center;
+        grid-column: 1/5;
+        grid-row: 2/3;
     }
 }
 

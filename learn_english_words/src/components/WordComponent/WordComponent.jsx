@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import Word from './Word/Word.jsx';
-import Button from './Button/Button';
+import Button from '../Button/Button';
 
 import style from './wordComponent.module.scss';
 import { useEffect } from 'react';

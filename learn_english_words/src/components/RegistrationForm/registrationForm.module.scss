@@ -16,11 +16,12 @@
         background-color: #edf1f5;
         border-radius: 5px;
         text-align: center;
+        padding: 10px;
     }
 
     .title {
         text-align: center;
-        margin: 20px 0 5px;
+        margin: 30px 0 15px;
         font-family: 'Inter';
         font-size: 22px;
         font-weight: 500;
@@ -32,9 +33,10 @@
         flex-direction: column;
 
         .input {
-            width: 50%;
+            width: 350px;
             margin: 8px auto;
             padding: 6px;
+            background-color: #fff;
             border: 1px solid #396450;
         }
 
@@ -63,7 +65,7 @@
 
     .saveDate_btn {
         display: block;
-        width: 50%;
+        width: 200px;
         height: 35px;
         border: none;
         background-color: #396450;
@@ -112,6 +114,20 @@
         .form {
             left: 15%;
             right: 15%;
+
+            .title {
+                margin: 20px 0 10px;
+            }
+
+            .registration_inputs {
+                .input {
+                    width: 50%;
+                }
+            }
+
+            .saveDate_btn {
+                width: 50%;
+            }
         }
     }
 }
