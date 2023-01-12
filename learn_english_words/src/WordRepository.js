@@ -1,11 +1,11 @@
-const baseUrl = 'http://itgirlschool.justmakeit.ru/api/words';
 
 export class WordRepository {
-    constructor(word) {
-        this.word = word;
+    constructor(baseUrl) {
+        this.baseUrl = baseUrl;
     }
+
     async getAllWords() {
-        const response = await fetch(baseUrl);
+        const response = await fetch(this.baseUrl);
         return response.json();
     }
 

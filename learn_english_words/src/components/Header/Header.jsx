@@ -11,7 +11,7 @@ function Header(props) {
             <div className={style.login_form}>
                 <div className={style.profil}>
                     <img className={style.profil_icon}
-                        src="./assets/images/icons8-пользователь-мужчина-в-кружке-50.png"
+                        src="./assets/images/icons8-man-50.png"
                         alt="logo" />
                     <button onClick={props.showLoginForm} className={style.text}>Войти</button>
                     <button onClick={props.showRegistrationForm} className={style.text}>Регистрация</button>

@@ -85,7 +85,7 @@ function WordComponent(props) {
             <div className={`${style.btn_container} ${style.wrapper}`}>
                 {isEditing && <Button
                     onClick={saveChanges}
-                    src='./assets/images/icons8-галочка-26.png'
+                    src='./assets/images/icons8-checkbox-26.png'
                     disabled={!hasChanges() || hasErrors()}
                     style={style.btn_save}
                     disabledStyle={style.btn_save_disabled}
@@ -93,16 +93,16 @@ function WordComponent(props) {
                 {isEditing && <Button
                     onClick={cancelEditing}
                     style={style.cancel_edit_btn}
-                    src='./assets/images/icons8-отменить-30.png'
+                    src='./assets/images/icons8-cancel-30.png'
                 />}
                 {!isEditing && <Button
                     onClick={edit}
                     style={style.btn_edit}
-                    src='./assets/images/icons8-карандаш-100.png'
+                    src='./assets/images/icons8-pen-100.png'
                 />}
                 <Button
                     style={style.btn_delete}
-                    src='./assets/images/icons8-сортировка-отходов-50.png'
+                    src='./assets/images/icons8-delete-50.png'
                 />
             </div>
             {errors && <div className={style.error_text}>{[errors.english, errors.transcription, errors.russian]}</div>}

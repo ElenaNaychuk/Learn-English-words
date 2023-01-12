@@ -32,7 +32,7 @@ function CardGallery({ words }) {
                 <Button
                     onClick={showPreviousCard}
                     className={style.btn}
-                    src='./assets/images/icons8-стрелка-влево-в-круге-50.png'
+                    src='./assets/images/icons8-left-arrow-50.png'
                     style={style.btn}
                 />
                 <WordCard
@@ -46,7 +46,7 @@ function CardGallery({ words }) {
                 <Button
                     onClick={showNextCard}
                     className={style.btn}
-                    src='./assets/images/icons8-стрелка-вправо-в-круге-50.png'
+                    src='./assets/images/icons8-right-arrow-50.png'
                     style={style.btn}
                 />
             </div>
