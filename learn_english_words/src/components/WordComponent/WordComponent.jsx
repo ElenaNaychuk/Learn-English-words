@@ -61,7 +61,7 @@ function WordComponent(props) {
     }
 
     return (
-        <div className={style.conainer} key={props.id}>
+        <div className={style.container} key={props.id}>
             <Word validate={validate}
                 onChange={createOnChangeHandler('english')}
                 content={props.word.english}

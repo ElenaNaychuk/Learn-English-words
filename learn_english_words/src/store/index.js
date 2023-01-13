@@ -1,5 +1,5 @@
 import WordsStore from "./WordStore"
 
-const store = {
-    wordsStore: WordsStore,
+export const store = {
+    wordsStore: new WordsStore(),
 }

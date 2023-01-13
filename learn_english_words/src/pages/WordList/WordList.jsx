@@ -1,9 +1,11 @@
+import WordAddingForm from '../../components/WordAddingForm/WordAddingForm.jsx';
 import WordComponent from '../../components/WordComponent/WordComponent.jsx';
 import style from './wordList.module.scss'
 
 function WordList(props) {
     return (
         <div className={style.container_words_list}>
+            <WordAddingForm />
             {
                 props.words.map((word) =>
                     <WordComponent

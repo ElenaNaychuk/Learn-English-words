@@ -1,4 +1,4 @@
-
+let baseUrl;
 export class WordRepository {
     constructor(baseUrl) {
         this.baseUrl = baseUrl;

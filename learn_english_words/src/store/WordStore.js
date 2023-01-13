@@ -1,32 +1,30 @@
-import { makeAutoObservable } from "mobx";
+import { makeAutoObservable, observable } from "mobx";
 import { WordRepository } from "../WordRepository";
 
 const baseUrl = 'http://itgirlschool.justmakeit.ru/api/words';
+
 const wordRepository = new WordRepository(baseUrl);
 class WordsStore {
     words = [];
     isLoaded = false;
-    isLoading = false;
 
     constructor() {
-        makeAutoObservable(this)
+        makeAutoObservable(this);
     }
 
     loadWords = async () => {
-        if (this.isLoaded && this.isLoading) {
+        if (this.isLoaded) {
             return;
         }
         try {
-            this.isLoading = true;
             this.words = await wordRepository.getAllWords();
-            this.isLoading = false;
             this.isLoaded = true;
         } catch (error) {
             console.log(error);
         }
     }
 
-    updateWord = async (word) => {
+    aupdateWord = async (word) => {
         try {
             await wordRepository.updateWord(word);
             const index = this.words.findIndex(word);
@@ -53,6 +51,6 @@ class WordsStore {
             console.log(error);
         }
     }
-}
+};
 
-export default new WordsStore();
+export default WordsStore;

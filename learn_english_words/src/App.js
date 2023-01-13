@@ -1,15 +1,18 @@
 import { useEffect, useState } from 'react'
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { CardGallery, ErrorMessage, MainPage, WordList } from './pages'
+import { CardGallery, ErrorMessage, MainPage, WordList } from './pages';
+import { inject, observer } from "mobx-react";
 import Header from './components/Header/Header.jsx';
 import Footer from './components/Footer/Footer.jsx';
 import LoginForm from './components/LoginForm/LoginForm.jsx';
 import RegistrationForm from './components/RegistrationForm/RegistrationForm.jsx';
-
-import words from './data/wordsData.json';
+// import words from './data/wordsData.json';
 import './style/App.scss';
 
-function App() {
+function App({ words, loadWords }) {
+
+  console.log(words[0]);
+
   const [isLoginFormShown, setIsLoginFormShown] = useState(false);
   const [isRegistrationFormShown, setIsRegistrationFormShown] = useState(false);
 
@@ -29,7 +32,13 @@ function App() {
     setIsRegistrationFormShown(false);
   };
 
-  useEffect(() => { console.log("Hello") }, []) // TODO вместо log брать данные из LocalStorage или с сервера
+  useEffect(() => {
+    try {
+      loadWords();
+    } catch (error) {
+      alert('Ой, произошла ошибка.')
+    }
+  }, [])
 
   return (
     <Router>
@@ -54,6 +63,11 @@ function App() {
       </div>
     </Router>
   );
-}
+};
 
-export default App;
+export default inject(({ wordsStore }) => {
+  const { words, loadWords } = wordsStore;
+  return {
+    words, loadWords
+  }
+})(observer(App));

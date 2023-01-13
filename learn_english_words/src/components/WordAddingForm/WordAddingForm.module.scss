@@ -1,0 +1,47 @@
+.container {
+    background-color: #f0fbf6;
+    margin-bottom: 30px;
+    padding: 5px;
+
+    .form {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: 1fr auto;
+        gap: 6px;
+
+        .form__input {
+            width: 93%;
+            padding: 7px;
+            border: 1px solid #579a7b;
+            border-radius: 10px;
+
+            font-family: 'Inter';
+            font-size: 18px;
+            font-weight: 300;
+        }
+
+        .form__input_red {
+            border: 1px solid red;
+        }
+
+        button {
+            width: 200px;
+            border-radius: 10px;
+            background-color: #579a7b;
+        }
+
+        button[disabled] {
+            opacity: 0.4;
+        }
+
+    }
+
+    .form__errorMessage {
+        height: 20px;
+        text-align: center;
+        color: red;
+        font-family: 'Inter';
+        font-size: 16px;
+        font-weight: 300;
+    }
+}
