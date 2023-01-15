@@ -8,33 +8,31 @@ export class WordRepository {
         return response.json();
     }
 
-    async updateWord(word) {
-        await fetch(`${this.baseUrl}/${word.id}/update`, {
+    async saveUpdateWord(id, word) {
+        const response = await fetch(`${this.baseUrl}/${id}/update`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json;charset=utf-8'
             },
             body: JSON.stringify(word)
         });
+        return response.json();
     }
 
     async addWord(word) {
-        await fetch(`${this.baseUrl}/add`, {
+        const response = await fetch(`${this.baseUrl}/add`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json;charset=utf-8'
             },
             body: JSON.stringify(word)
         });
+        return response.json();
     }
 
-    async deleteWord(word) {
-        await fetch(`${this.baseUrl}/${word.id}/delete`, {
+    async deleteWord(id) {
+        await fetch(`${this.baseUrl}/${id}/delete`, {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json;charset=utf-8'
-            },
-            body: JSON.stringify(word)
         });
     }
 }

@@ -9,7 +9,6 @@ function WordAddingForm({ addWord }) {
         english: '',
         transcription: '',
         russian: '',
-        id: Date.now(),
     });
 
     const handleChange = (e) => {
@@ -20,10 +19,8 @@ function WordAddingForm({ addWord }) {
 
     const validateForm = (isValue) => {
         const errors = {};
-        const valueArr = Object.values(isValue);
-        // const { id, ...valuesArr } = valueArr;
-        const Arr = valueArr.filter((item, index) => index != valueArr.length - 1)
-        for (const value of Arr) {
+        const valuesArr = Object.values(isValue);
+        for (const value of valuesArr) {
             if (value === '') {
                 errors.emptyField = 'Все поля должны быть заполнены. ';
             }
@@ -49,7 +46,7 @@ function WordAddingForm({ addWord }) {
             english: '',
             transcription: '',
             russian: '',
-            id: Date.now(),
+            // id: Date.now(),
         })
     }
 

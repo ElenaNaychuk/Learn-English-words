@@ -1,12 +1,13 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { inject, observer } from "mobx-react";
+
 import Word from './Word/Word.jsx';
 import Button from '../Button/Button';
 
 import style from './wordComponent.module.scss';
-import { useEffect } from 'react';
 
 function WordComponent(props) {
-    const { english, transcription, russian } = props;
+    const { english, transcription, russian, wordId, tag, deleteWord, updateWord, serverError } = props;
 
     const [isEditing, setIsEditing] = useState(false);
 
@@ -19,7 +20,9 @@ function WordComponent(props) {
     const [newValues, setNewValues] = useState({
         english: english,
         transcription: transcription,
-        russian: russian
+        russian: russian,
+        id: wordId,
+        tags: tag,
     });
 
     useEffect(() => setNewValues(newValues), [newValues]);
@@ -36,6 +39,7 @@ function WordComponent(props) {
     const edit = () => {
         setIsEditing(true);
     }
+
     const cancelEditing = () => {
         if (window.confirm('Уверены что хотите отменить несохраненные изменения?')) {
             setIsEditing(false);
@@ -56,8 +60,11 @@ function WordComponent(props) {
     }
 
     const saveChanges = () => {
-        console.log(newValues);
+        updateWord(wordId, newValues);
         setIsEditing(!isEditing);
+    }
+    const removeWord = () => {
+        deleteWord(wordId)
     }
 
     return (
@@ -101,6 +108,7 @@ function WordComponent(props) {
                     src='./assets/images/icons8-pen-100.png'
                 />}
                 <Button
+                    onClick={removeWord}
                     style={style.btn_delete}
                     src='./assets/images/icons8-delete-50.png'
                 />
@@ -110,4 +118,7 @@ function WordComponent(props) {
     );
 }
 
-export default WordComponent;
+export default inject(({ wordsStore }) => {
+    const { deleteWord, updateWord, serverError } = wordsStore;
+    return { deleteWord, updateWord, serverError };
+})(observer(WordComponent)); 

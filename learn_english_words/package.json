@@ -2,6 +2,7 @@
   "name": "learn_english_words",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://itgirlschool.justmakeit.ru",
   "dependencies": {
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.3",
     "@svgr/webpack": "^5.5.0",
@@ -60,16 +61,6 @@
     "webpack-dev-server": "^4.6.0",
     "webpack-manifest-plugin": "^4.0.2",
     "workbox-webpack-plugin": "^6.4.1"
-  },
-  "proxy": {
-    "/search": {
-      "target": "https://www.google.com",
-      "changeOrigin": true
-    },
-    "/api": {
-      "target": "http://itgirlschool.justmakeit.ru",
-      "changeOrigin": true
-    }
   },
   "scripts": {
     "start": "node scripts/start.js",

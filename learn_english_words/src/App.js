@@ -8,7 +8,7 @@ import LoginForm from './components/LoginForm/LoginForm.jsx';
 import RegistrationForm from './components/RegistrationForm/RegistrationForm.jsx';
 import './style/App.scss';
 
-function App({ loadWords, isLoading, error }) {
+function App({ loadWords, isLoading, serverError }) {
   const [isLoginFormShown, setIsLoginFormShown] = useState(false);
   const [isRegistrationFormShown, setIsRegistrationFormShown] = useState(false);
 
@@ -41,8 +41,8 @@ function App({ loadWords, isLoading, error }) {
   if (isLoading) {
     return <p>Loading ...</p>;
   }
-  if (error) {
-    return <p>{error}</p>;
+  if (serverError) {
+    return <p>{serverError}</p>;
   }
   return (
     <Router>
@@ -71,7 +71,7 @@ function App({ loadWords, isLoading, error }) {
 
 export default inject((store) => {
   const { wordsStore } = store;
-  window.mobxStore = store;
-  const { loadWords, isLoading, error } = wordsStore;
-  return { loadWords, isLoading, error }
+  window.mobxStore = store;//todo!
+  const { loadWords, isLoading, serverError } = wordsStore;
+  return { loadWords, isLoading, serverError }
 })(observer(App));

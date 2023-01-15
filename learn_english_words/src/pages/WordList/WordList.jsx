@@ -17,6 +17,7 @@ function WordList({ words, isLoading }) {
                         english={word.english}
                         transcription={word.transcription}
                         russian={word.russian}
+                        wordId={word.id}
                         tag={word.tags}
                         key={word.id}
                         word={word}

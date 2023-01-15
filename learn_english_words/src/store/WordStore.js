@@ -8,7 +8,7 @@ class WordsStore {
     words = [];
     isLoaded = false;
     isLoading = false;
-    error = false;
+    serverError = false;
 
     constructor() {
         makeAutoObservable(this);
@@ -23,34 +23,38 @@ class WordsStore {
             this.isLoaded = true;
         } catch (error) {
             console.log(error);
+            this.serverError = true;
         }
     }
 
-    aupdateWord = async (word) => {
+    updateWord = async (id, word) => {
         try {
-            await wordRepository.updateWord(word);
-            const index = this.words.findIndex(word);
-            this.words.splice(index, 1, word);
+            const response = await wordRepository.saveUpdateWord(id, word);
+            const index = this.words.findIndex((element) => element.id === id);
+            this.words.splice(index, 1, response);
         } catch (error) {
             console.log(error);
+            this.serverError = true;
         }
     }
 
     addWord = async (word) => {
-        this.words.push(word);
         try {
-            await wordRepository.addWord(word);
+            const wordData = await wordRepository.addWord(word);
+            this.words.push(wordData);
         } catch (error) {
             console.log(error);
+            this.serverError = true;
         }
     }
 
-    deleteWord = async (word) => {
+    deleteWord = async (id) => {
         try {
-            await wordRepository.deleteWord(word);
-            this.words = this.words.filter(item => item.id !== word.id)
+            await wordRepository.deleteWord(id);
+            this.words = this.words.filter(item => item.id !== id)
         } catch (error) {
             console.log(error);
+            this.serverError = true;
         }
     }
 };
