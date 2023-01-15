@@ -6,13 +6,9 @@ import Header from './components/Header/Header.jsx';
 import Footer from './components/Footer/Footer.jsx';
 import LoginForm from './components/LoginForm/LoginForm.jsx';
 import RegistrationForm from './components/RegistrationForm/RegistrationForm.jsx';
-// import words from './data/wordsData.json';
 import './style/App.scss';
 
-function App({ words, loadWords }) {
-
-  console.log(words[0]);
-
+function App({ loadWords, isLoading, error }) {
   const [isLoginFormShown, setIsLoginFormShown] = useState(false);
   const [isRegistrationFormShown, setIsRegistrationFormShown] = useState(false);
 
@@ -33,13 +29,21 @@ function App({ words, loadWords }) {
   };
 
   useEffect(() => {
+    isLoading = true
     try {
       loadWords();
     } catch (error) {
-      alert('Ой, произошла ошибка.')
+      error = true;
     }
-  }, [])
+    isLoading = false;
+  }, []);
 
+  if (isLoading) {
+    return <p>Loading ...</p>;
+  }
+  if (error) {
+    return <p>{error}</p>;
+  }
   return (
     <Router>
       <div className='wrapper'>
@@ -54,8 +58,8 @@ function App({ words, loadWords }) {
         }
         <Routes>
           {/* <Route exact path="/learned" element={<LearnedWords />} /> //TODO */}
-          <Route exact path="/cards" element={<CardGallery words={words} />} />
-          <Route exact path="/list" element={<WordList words={words} />} />
+          <Route exact path="/cards" element={<CardGallery />} />
+          <Route exact path="/list" element={<WordList />} />
           <Route exact path="/" element={<MainPage />} />
           <Route path="*" element={<ErrorMessage />} />
         </Routes>
@@ -65,9 +69,9 @@ function App({ words, loadWords }) {
   );
 };
 
-export default inject(({ wordsStore }) => {
-  const { words, loadWords } = wordsStore;
-  return {
-    words, loadWords
-  }
+export default inject((store) => {
+  const { wordsStore } = store;
+  window.mobxStore = store;
+  const { loadWords, isLoading, error } = wordsStore;
+  return { loadWords, isLoading, error }
 })(observer(App));

@@ -1,12 +1,15 @@
 import { useState } from 'react';
+import { inject, observer } from "mobx-react";
+
 import Button from '../Button/Button';
 import style from './WordAddingForm.module.scss';
 
-function WordAddingForm() {
+function WordAddingForm({ addWord }) {
     const [isValue, setIsValue] = useState({
         english: '',
         transcription: '',
         russian: '',
+        id: Date.now(),
     });
 
     const handleChange = (e) => {
@@ -17,8 +20,10 @@ function WordAddingForm() {
 
     const validateForm = (isValue) => {
         const errors = {};
-        const valueArr = Object.values(isValue)
-        for (const value of valueArr) {
+        const valueArr = Object.values(isValue);
+        // const { id, ...valuesArr } = valueArr;
+        const Arr = valueArr.filter((item, index) => index != valueArr.length - 1)
+        for (const value of Arr) {
             if (value === '') {
                 errors.emptyField = 'Все поля должны быть заполнены. ';
             }
@@ -27,14 +32,30 @@ function WordAddingForm() {
                 break;
             }
         }
-        console.log(errors);
         return errors;
     };
 
     const errors = validateForm(isValue);
 
+    function saveNewWord(e) {
+        e.preventDefault()
+        try {
+            addWord(isValue);
+        } catch (error) {
+            console.log(error);
+            alert('Ой, произошла ошибка.')
+        }
+        setIsValue({
+            english: '',
+            transcription: '',
+            russian: '',
+            id: Date.now(),
+        })
+    }
+
     return (
         <section className={style.container}>
+            <h4 className={style.formTitle}>Добавить новое слово</h4>
             <form className={style.form}>
                 <input
                     onChange={handleChange}
@@ -58,14 +79,19 @@ function WordAddingForm() {
                     name='russian'
                     placeholder='russian' />
                 <Button
-                    onClick={() => { }}
+                    onClick={saveNewWord}
                     src='./assets/images/icons8-checkbox-26.png'
                     disabled={errors.emptyField || errors.isNumber}
                 />
             </form>
-            {errors.isNumber && <p className={style.form__errorMessage}>{[errors.isNumber, errors.emptyField]}</p>}
+            {errors.isNumber
+                ? <p className={style.form__errorMessage}>{errors.isNumber}</p>
+                : null}
         </section>
     );
 }
 
-export default WordAddingForm;
+export default inject(({ wordsStore }) => {
+    const { addWord } = wordsStore;
+    return { addWord };
+})(observer(WordAddingForm));

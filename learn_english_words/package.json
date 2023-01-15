@@ -61,7 +61,16 @@
     "webpack-manifest-plugin": "^4.0.2",
     "workbox-webpack-plugin": "^6.4.1"
   },
-  "proxy": "http://itgirlschool.justmakeit.ru",
+  "proxy": {
+    "/search": {
+      "target": "https://www.google.com",
+      "changeOrigin": true
+    },
+    "/api": {
+      "target": "http://itgirlschool.justmakeit.ru",
+      "changeOrigin": true
+    }
+  },
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",

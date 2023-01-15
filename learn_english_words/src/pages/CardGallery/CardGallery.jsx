@@ -1,12 +1,12 @@
 import { useState } from 'react';
+import { inject, observer } from "mobx-react";
 
 import WordCard from '../../components/WordCard/WordCard.jsx';
 import Button from '../../components/Button/Button';
 
 import style from './cardGallery.module.scss';
 
-function CardGallery({ words }) {
-
+function CardGallery({ words, isLoading }) {
     const [clicked, setClick] = useState(false);
     const [cardIndex, setCardIndex] = useState(0);
     const [isLearnedNow, setIsLearnedNow] = useState(0);
@@ -26,6 +26,9 @@ function CardGallery({ words }) {
         setClick(false);
     }
 
+    if (isLoading) {
+        return <p>Loading ...</p>;
+    }
     return (
         <div className={style.wrapper}>
             <div className={style.container}>
@@ -56,7 +59,11 @@ function CardGallery({ words }) {
     );
 }
 
-export default CardGallery;
+export default inject(({ wordsStore }) => {
+    const { words, isLoading } = wordsStore;
+    return { words, isLoading }
+})(observer(CardGallery));
+
 
 function cyclicDecrement(current, max) {
     if (current === 0) {

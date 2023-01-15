@@ -1,4 +1,3 @@
-let baseUrl;
 export class WordRepository {
     constructor(baseUrl) {
         this.baseUrl = baseUrl;
@@ -10,7 +9,7 @@ export class WordRepository {
     }
 
     async updateWord(word) {
-        await fetch(`${baseUrl}/${word.id}/update`, {
+        await fetch(`${this.baseUrl}/${word.id}/update`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json;charset=utf-8'
@@ -20,7 +19,7 @@ export class WordRepository {
     }
 
     async addWord(word) {
-        await fetch(`${baseUrl}/add`, {
+        await fetch(`${this.baseUrl}/add`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json;charset=utf-8'
@@ -30,7 +29,7 @@ export class WordRepository {
     }
 
     async deleteWord(word) {
-        await fetch(`${baseUrl}/${word.id}/delete`, {
+        await fetch(`${this.baseUrl}/${word.id}/delete`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json;charset=utf-8'

@@ -3,6 +3,14 @@
     margin-bottom: 30px;
     padding: 5px;
 
+    .formTitle {
+        text-align: center;
+        margin-bottom: 10px;
+        font-family: 'Inter';
+        font-size: 18px;
+        font-weight: 300;
+    }
+
     .form {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
@@ -25,7 +33,7 @@
         }
 
         button {
-            width: 200px;
+            width: 95%;
             border-radius: 10px;
             background-color: #579a7b;
         }
@@ -43,5 +51,22 @@
         font-family: 'Inter';
         font-size: 16px;
         font-weight: 300;
+    }
+}
+
+@media screen and (max-width: 599.98px) {
+    .container {
+
+        .form {
+            display: block;
+            text-align: center;
+            border: 2px solid #579a7b;
+            margin-bottom: 20px;
+        }
+
+        .form__input {
+            width: 85%;
+            margin: 5px;
+        }
     }
 }

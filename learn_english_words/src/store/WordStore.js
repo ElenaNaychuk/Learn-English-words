@@ -1,12 +1,14 @@
-import { makeAutoObservable, observable } from "mobx";
+import { makeAutoObservable } from "mobx";
 import { WordRepository } from "../WordRepository";
 
-const baseUrl = 'http://itgirlschool.justmakeit.ru/api/words';
+const baseUrl = '/api/words';
 
 const wordRepository = new WordRepository(baseUrl);
 class WordsStore {
     words = [];
     isLoaded = false;
+    isLoading = false;
+    error = false;
 
     constructor() {
         makeAutoObservable(this);
@@ -35,9 +37,9 @@ class WordsStore {
     }
 
     addWord = async (word) => {
+        this.words.push(word);
         try {
             await wordRepository.addWord(word);
-            this.words.push(word);
         } catch (error) {
             console.log(error);
         }
