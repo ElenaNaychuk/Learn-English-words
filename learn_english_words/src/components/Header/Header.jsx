@@ -1,12 +1,12 @@
-import { useEffect, useRef } from 'react';
+// import { useEffect, useRef } from 'react';
 import { inject, observer } from "mobx-react";
 
 import style from './header.module.scss';
 
 function Header({ user, showLoginForm }) {
 
-    const ref = useRef(null);
-    useEffect(() => ref.current.focus(), []);
+    // const ref = useRef(null);
+    // useEffect(() => ref.current.focus(), []);
 
     const savedUserName = localStorage.getItem('name');
     const unsavedUserName = sessionStorage.getItem('name');
@@ -30,10 +30,10 @@ function Header({ user, showLoginForm }) {
                     }
                 </div>
             </div>
-            <legend className={style.search_block}>
+            {/* <legend className={style.search_block}>
                 <input ref={ref} className={style.input} type="text" placeholder='поиск' />
                 <img className={style.search_icon} src='./assets/images/searchIcon.svg' alt="search" />
-            </legend>
+            </legend> */}
         </div>
     );
 }

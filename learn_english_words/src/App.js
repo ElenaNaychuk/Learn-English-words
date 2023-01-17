@@ -35,7 +35,7 @@ function App({ loadWords, isLoading, serverError }) {
     return <p>Loading ...</p>;
   }
   if (serverError) {
-    return <p>{serverError}</p>;
+    return <p>Ошибка загрузки...</p>;
   }
   return (
     <Router>
