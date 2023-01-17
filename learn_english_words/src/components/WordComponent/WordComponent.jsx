@@ -7,7 +7,17 @@ import Button from '../Button/Button';
 import style from './wordComponent.module.scss';
 
 function WordComponent(props) {
-    const { english, transcription, russian, wordId, tag, deleteWord, updateWord, serverError } = props;
+    const {
+        english,
+        transcription,
+        russian,
+        wordId,
+        tag,
+        deleteWord,
+        updateWord,
+        serverError,
+        isLoading,
+    } = props;
 
     const [isEditing, setIsEditing] = useState(false);
 
@@ -28,7 +38,8 @@ function WordComponent(props) {
     useEffect(() => setNewValues(newValues), [newValues]);
 
     const hasChanges = () => {
-        for (const [name, value] of Object.entries(newValues)) {
+        const { id, tags, ...values } = newValues;
+        for (const [name, value] of Object.entries(values)) {
             if (props[name] !== value) return true
         }
         return false
@@ -41,9 +52,10 @@ function WordComponent(props) {
     }
 
     const cancelEditing = () => {
-        if (window.confirm('Уверены что хотите отменить несохраненные изменения?')) {
-            setIsEditing(false);
+        if (hasChanges()) {
+            window.confirm('Уверены что хотите отменить несохраненные изменения?');
         }
+        setIsEditing(false);
     }
 
     function validate(inputValue) {
@@ -63,10 +75,17 @@ function WordComponent(props) {
         updateWord(wordId, newValues);
         setIsEditing(!isEditing);
     }
+
     const removeWord = () => {
         deleteWord(wordId)
     }
 
+    if (isLoading) {
+        return <p>Loading ...</p>;
+    }
+    if (serverError) {
+        return <p>{serverError}</p>;
+    }
     return (
         <div className={style.container} key={props.id}>
             <Word validate={validate}
@@ -95,7 +114,6 @@ function WordComponent(props) {
                     src='./assets/images/icons8-checkbox-26.png'
                     disabled={!hasChanges() || hasErrors()}
                     style={style.btn_save}
-                    disabledStyle={style.btn_save_disabled}
                 />}
                 {isEditing && <Button
                     onClick={cancelEditing}
@@ -119,6 +137,6 @@ function WordComponent(props) {
 }
 
 export default inject(({ wordsStore }) => {
-    const { deleteWord, updateWord, serverError } = wordsStore;
-    return { deleteWord, updateWord, serverError };
+    const { deleteWord, updateWord, serverError, isLoading } = wordsStore;
+    return { deleteWord, updateWord, serverError, isLoading };
 })(observer(WordComponent)); 

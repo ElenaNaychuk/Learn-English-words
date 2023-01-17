@@ -28,7 +28,7 @@
             background-color: #579a7b;
         }
 
-        .btn_save_disabled {
+        .btn_save[disabled] {
             opacity: 0.5;
         }
 
@@ -56,7 +56,6 @@
         grid-row: 2/3;
     }
 }
-
 
 @media screen and (max-width: 599.98px) {
     .container {

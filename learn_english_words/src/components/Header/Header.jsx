@@ -1,10 +1,21 @@
 import { useEffect, useRef } from 'react';
+import { inject, observer } from "mobx-react";
+
 import style from './header.module.scss';
 
-function Header(props) {
+function Header({ user, showLoginForm }) {
 
     const ref = useRef(null);
     useEffect(() => ref.current.focus(), []);
+
+    const savedUserName = localStorage.getItem('name');
+    const unsavedUserName = sessionStorage.getItem('name');
+
+    if (savedUserName != null) {
+        user.name = savedUserName;
+    } else if (unsavedUserName != null) {
+        user.name = unsavedUserName;
+    }
 
     return (
         <div className={style.container}>
@@ -13,8 +24,10 @@ function Header(props) {
                     <img className={style.profil_icon}
                         src="./assets/images/icons8-man-50.png"
                         alt="logo" />
-                    <button onClick={props.showLoginForm} className={style.text}>Войти</button>
-                    <button onClick={props.showRegistrationForm} className={style.text}>Регистрация</button>
+                    {user.name === 'пользователь'
+                        ? <button onClick={showLoginForm} className={style.btn}>Войти</button>
+                        : <p onClick={showLoginForm} className={style.userName}>{user.name}</p>
+                    }
                 </div>
             </div>
             <legend className={style.search_block}>
@@ -25,4 +38,7 @@ function Header(props) {
     );
 }
 
-export default Header;
+export default inject(({ userStore }) => {
+    const { user } = userStore;
+    return { user };
+})(observer(Header)); 

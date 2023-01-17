@@ -3,10 +3,13 @@ import WordAddingForm from '../../components/WordAddingForm/WordAddingForm.jsx';
 import WordComponent from '../../components/WordComponent/WordComponent.jsx';
 import style from './wordList.module.scss'
 
-function WordList({ words, isLoading }) {
+function WordList({ words, isLoading, serverError }) {
 
     if (isLoading) {
         return <p>Loading ...</p>;
+    }
+    if (serverError) {
+        return <p>{serverError}</p>;
     }
     return (
         <div className={style.container_words_list}>
@@ -29,6 +32,6 @@ function WordList({ words, isLoading }) {
 }
 
 export default inject(({ wordsStore }) => {
-    const { words, isLoading } = wordsStore;
-    return { words, isLoading };
+    const { words, isLoading, serverError } = wordsStore;
+    return { words, isLoading, serverError };
 })(observer(WordList));

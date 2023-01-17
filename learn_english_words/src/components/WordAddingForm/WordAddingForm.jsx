@@ -46,7 +46,6 @@ function WordAddingForm({ addWord }) {
             english: '',
             transcription: '',
             russian: '',
-            // id: Date.now(),
         })
     }
 

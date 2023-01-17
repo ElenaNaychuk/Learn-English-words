@@ -7,7 +7,7 @@
     box-shadow: 0.05em 0.05em 0.5em #579a7b;
 }
 
-.btn_disabled:hover {
+.btn[disabled] {
     cursor: default;
     box-shadow: none;
 }

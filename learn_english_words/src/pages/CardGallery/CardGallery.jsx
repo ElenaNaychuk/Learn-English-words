@@ -6,7 +6,7 @@ import Button from '../../components/Button/Button';
 
 import style from './cardGallery.module.scss';
 
-function CardGallery({ words, isLoading }) {
+function CardGallery({ words, isLoading, serverError }) {
     const [clicked, setClick] = useState(false);
     const [cardIndex, setCardIndex] = useState(0);
     const [isLearnedNow, setIsLearnedNow] = useState(0);
@@ -28,6 +28,9 @@ function CardGallery({ words, isLoading }) {
 
     if (isLoading) {
         return <p>Loading ...</p>;
+    }
+    if (serverError) {
+        return <p>{serverError}</p>;
     }
     return (
         <div className={style.wrapper}>
@@ -60,8 +63,8 @@ function CardGallery({ words, isLoading }) {
 }
 
 export default inject(({ wordsStore }) => {
-    const { words, isLoading } = wordsStore;
-    return { words, isLoading }
+    const { words, isLoading, serverError } = wordsStore;
+    return { words, isLoading, serverError }
 })(observer(CardGallery));
 
 

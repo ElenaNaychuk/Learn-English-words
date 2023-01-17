@@ -41,7 +41,6 @@
         button[disabled] {
             opacity: 0.4;
         }
-
     }
 
     .form__errorMessage {
@@ -62,11 +61,11 @@
             text-align: center;
             border: 2px solid #579a7b;
             margin-bottom: 20px;
-        }
 
-        .form__input {
-            width: 85%;
-            margin: 5px;
+            .form__input {
+                width: 90%;
+                margin: 5px;
+            }
         }
     }
 }
