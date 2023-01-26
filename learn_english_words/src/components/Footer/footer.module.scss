@@ -1,3 +1,21 @@
+@mixin font($weight, $size, $color) {
+    font-weight: $weight;
+    font-size: $size;
+    font-family: $family;
+    color: $color;
+}
+
+$light: 400;
+$normal: 500;
+
+$font-16: 16px;
+
+$dark-green: #55847A;
+$white: #fff;
+
+$family: 'Inter', sans-serif;
+
+
 .container {
     display: flex;
     flex: 1;
@@ -7,7 +25,7 @@
     flex-wrap: wrap;
 
     min-height: 60px;
-    background-color: #61a485;
+    background-color: $dark-green;
 
     position: sticky;
     bottom: 0;
@@ -17,25 +35,21 @@
         width: 10em;
         min-height: 3em;
         line-height: 3em;
-        color: #FFF;
-        border: 2px solid #FFF;
-        background-color: #61a485;
+        border: 2px solid $white;
+        background-color: $dark-green;
         border-radius: 10px;
         text-align: center;
         margin: 10px;
         text-decoration: none;
-
-        font-family: 'Inter';
-        font-size: 16px;
-        font-weight: 300;
+        @include font($light, $font-16, $white);
     }
 
     .block_navigation:hover {
         cursor: pointer;
-        background-color: #FFF;
-        border: 2px solid #61a485;
-        color: #61a485;
-        font-weight: 500;
+        background-color: $white;
+        border: 2px solid $dark-green;
+        color: $dark-green;
+        font-weight: $normal;
         text-decoration: none;
     }
 }

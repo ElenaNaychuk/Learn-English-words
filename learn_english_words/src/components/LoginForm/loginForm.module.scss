@@ -1,10 +1,12 @@
+$dark-green: #55847A;
+
 .favDialog {
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: #396450;
+    background-color: $dark-green;
 
     .form {
         position: absolute;
@@ -23,7 +25,7 @@
             font-family: 'Inter';
             font-size: 22px;
             font-weight: 500;
-            color: #396450;
+            color: $dark-green;
         }
 
         .input {
@@ -31,7 +33,7 @@
             display: block;
             margin: 10px auto;
             padding: 7px;
-            border: 1px solid #396450;
+            border: 1px solid $dark-green;
         }
 
         .text {
@@ -45,7 +47,7 @@
             width: 60%;
             height: 16%;
             border: none;
-            background-color: #396450;
+            background-color: $dark-green;
             color: #fff;
             margin: 20px auto 0;
             border-radius: 2px;
@@ -58,7 +60,7 @@
         .saveDate_btn:hover {
             cursor: pointer;
             background-color: #fff;
-            border: 1px solid #396450;
+            border: 1px solid $dark-green;
             color: #396450;
 
             font-family: 'Inter';
@@ -68,7 +70,7 @@
 
         .close_btn {
             border: none;
-            color: #396450;
+            color: $dark-green;
             display: block;
             width: 30px;
             height: 30px;

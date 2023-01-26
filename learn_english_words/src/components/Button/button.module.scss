@@ -1,10 +1,12 @@
+$dark-green: #55847A;
+
 .btn {
     border: none;
 }
 
 .btn:hover {
     cursor: pointer;
-    box-shadow: 0.05em 0.05em 0.5em #579a7b;
+    box-shadow: 0.05em 0.05em 0.5em $dark-green;
 }
 
 .btn[disabled] {

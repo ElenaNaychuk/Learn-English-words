@@ -1,30 +1,43 @@
+@mixin font($weight, $size, $color) {
+    font-weight: $weight;
+    font-size: $size;
+    font-family: $family;
+    color: $color;
+}
+
+$light: 400;
+$normal: 500;
+// $bold: 600;
+
+$font-36: 36px;
+$font-26: 26px;
+$font-22: 22px;
+$font-20: 20px;
+$font-16: 16px;
+
+$dark-green: #55847A;
+$white: #fff;
+$light-gray: #EDEDED;
+// $orange: #feac4c;
+
+$family: 'Inter', sans-serif;
+
+
 .container {
     height: 100vh;
-    background-color: #edf1f5;
     text-align: center;
     padding-top: 150px;
+    background: url('/../public/assets/images/circle\ design.png') no-repeat;
+    background-position-y: top;
 
     .title {
-        font-family: 'Inter';
-        font-size: 36px;
-        font-weight: 500;
-        color: #396450;
+        @include font($normal, $font-36, $dark-green);
     }
 
-    .message {
-        font-family: 'Inter';
-        font-size: 26px;
-        font-weight: 500;
-        color: #396450;
-        margin-top: 30px;
-    }
-
+    .message,
     .link {
-        font-family: 'Inter';
-        font-size: 30px;
-        font-weight: 500;
-        color: #396450;
         margin-top: 30px;
+        @include font($normal, $font-26, $dark-green);
     }
 }
 
@@ -33,17 +46,17 @@
         padding-top: 80px;
 
         .title {
-            font-size: 26px;
+            font-size: $font-26;
         }
 
         .message {
-            font-size: 20px;
-            font-weight: 300;
+            font-size: $font-20;
+            font-weight: $light;
         }
 
         .link {
-            font-size: 22px;
-            font-weight: 500;
+            font-size: $font-22;
+            font-weight: $normal;
         }
 
     }

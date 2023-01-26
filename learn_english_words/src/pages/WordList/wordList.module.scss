@@ -1,12 +1,16 @@
 @media screen and (min-width: 1024px) {
     .container_words_list {
         padding: 20px 100px;
+        background: url('/../public/assets/images/circle\ design.png') no-repeat;
+        background-position-y: top;
     }
 }
 
 @media screen and (min-width: 600px) and (max-width: 1024px) {
     .container_words_list {
         padding: 15px 20px;
+        background: url('/../public/assets/images/circle\ design.png') no-repeat;
+        background-position-y: top;
     }
 }
 

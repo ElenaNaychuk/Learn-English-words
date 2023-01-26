@@ -1,33 +1,48 @@
+@mixin font($weight, $size, $color) {
+    font-weight: $weight;
+    font-size: $size;
+    font-family: $family;
+    color: $color;
+}
+
+$light: 400;
+$normal: 500;
+$bold: 600;
+
+$font-36: 36px;
+$font-26: 26px;
+$font-20: 20px;
+$font-16: 16px;
+
+$dark-green: #55847A;
+$white: #fff;
+$orange: #feac4c;
+
+$family: 'Inter', sans-serif;
+
 .btn {
     display: block;
     text-align: center;
     width: 15em;
     height: 2.5em;
     line-height: 2.5em;
-    background-color: #579a7b;
-    color: white;
+    background-color: $dark-green;
     border-radius: 10px;
     border: none;
-    margin-top: 4vh;
+    margin: 4vh 0;
     text-decoration: none;
-
-    font-family: 'Inter';
-    font-size: 16px;
-    font-weight: 500;
+    @include font($normal, $font-16, $white);
 }
 
 .btn:hover {
     cursor: pointer;
-    background-color: #feac4c;
+    background-color: $orange;
     transform: scale(1.01, 1.01);
-    box-shadow: 0.05em 0.05em 0.5em #579a7b;
+    box-shadow: 0.05em 0.05em 0.5em $dark-green;
 }
 
 .text {
-    color: #579a7b;
-    font-family: 'Inter';
-    font-size: 26px;
-    font-weight: 500;
+    @include font($normal, $font-26, $dark-green);
 }
 
 .image {
@@ -43,14 +58,14 @@
 .container {
     height: calc(100vh - 120px);
     padding: 50px 30px;
+    background: url('/../public/assets/images/circle\ design.png') no-repeat;
+    background-position-y: top;
+
 
     .title {
         text-align: center;
         margin-top: 30px;
-        color: #579a7b;
-        font-family: 'Inter';
-        font-size: 36px;
-        font-weight: 500;
+        @include font($normal, $font-36, $dark-green);
     }
 
     .welcome {
@@ -67,8 +82,7 @@
 @media screen and (max-width: 599.98px) {
 
     .text {
-        font-size: 20px;
-        font-weight: 300;
+        @include font($light, $font-20, $dark-green);
     }
 
     .image {
@@ -76,9 +90,9 @@
         object-fit: contain;
     }
 
-    .button {
-        margin: 4vh;
-        font-weight: 300;
+    .btn {
+        margin: 4vh auto;
+        font-weight: $light;
     }
 
     .container {
@@ -86,8 +100,7 @@
         text-align: center;
 
         .title {
-            font-size: 26px;
-            font-weight: 500;
+            @include font($normal, $font-26, $dark-green);
         }
 
         .welcome {
